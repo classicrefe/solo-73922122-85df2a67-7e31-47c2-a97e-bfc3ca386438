@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    image: saddle-reprint-api
+    ports:
+      - "8000:8000"
+    environment:
+      DB_PATH: /data/app.db
+    volumes:
+      - reprint-data:/data
+    restart: unless-stopped
+
+volumes:
+  reprint-data:
